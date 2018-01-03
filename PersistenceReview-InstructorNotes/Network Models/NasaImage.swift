@@ -9,6 +9,7 @@
 import Foundation
 
 struct NasaImage: Codable {
+    let title: String
     let url: String
 }
 
@@ -21,8 +22,10 @@ struct NasaAPIClient {
         guard let url = URL(string: urlStr) else {return}
         let completion: (Data) -> Void = {(data: Data) in
             do {
-                let things = try JSONDecoder().decode(NasaImage.self, from: data)
-                completionHandler(things)
+                let newImage = try JSONDecoder().decode(NasaImage.self, from: data)
+                UserDefaultsHelper.manager.incrementNumberOfLoadedImages()
+                FileManagerHelper.manager.addNew(newNasaImage: newImage)
+                completionHandler(newImage)
             }
             catch {
                 print(error)

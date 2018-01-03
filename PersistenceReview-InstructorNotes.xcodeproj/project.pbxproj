@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5410A66A1FFD643600935A9A /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5410A6691FFD643600935A9A /* UserDefaultsHelper.swift */; };
+		5410A66D1FFD672B00935A9A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5410A66C1FFD672B00935A9A /* SettingsViewController.swift */; };
+		5410A66F1FFD6ECE00935A9A /* FileManagerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5410A66E1FFD6ECE00935A9A /* FileManagerHelper.swift */; };
+		5410A6711FFD73FE00935A9A /* ImagesHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5410A6701FFD73FE00935A9A /* ImagesHistoryViewController.swift */; };
+		5410A6751FFD78D600935A9A /* NSCacheHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5410A6741FFD78D600935A9A /* NSCacheHelper.swift */; };
 		5455407A1FFC420E00F32B51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545540791FFC420E00F32B51 /* AppDelegate.swift */; };
 		5455407C1FFC420E00F32B51 /* NasaImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5455407B1FFC420E00F32B51 /* NasaImageViewController.swift */; };
 		5455407F1FFC420E00F32B51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5455407D1FFC420E00F32B51 /* Main.storyboard */; };
@@ -19,6 +24,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5410A6691FFD643600935A9A /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		5410A66C1FFD672B00935A9A /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5410A66E1FFD6ECE00935A9A /* FileManagerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerHelper.swift; sourceTree = "<group>"; };
+		5410A6701FFD73FE00935A9A /* ImagesHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesHistoryViewController.swift; sourceTree = "<group>"; };
+		5410A6741FFD78D600935A9A /* NSCacheHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCacheHelper.swift; sourceTree = "<group>"; };
 		545540761FFC420E00F32B51 /* PersistenceReview-InstructorNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PersistenceReview-InstructorNotes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		545540791FFC420E00F32B51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5455407B1FFC420E00F32B51 /* NasaImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaImageViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +53,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5410A66B1FFD644E00935A9A /* Persistence Models */ = {
+			isa = PBXGroup;
+			children = (
+				5410A6691FFD643600935A9A /* UserDefaultsHelper.swift */,
+				5410A66E1FFD6ECE00935A9A /* FileManagerHelper.swift */,
+				5410A6741FFD78D600935A9A /* NSCacheHelper.swift */,
+			);
+			path = "Persistence Models";
+			sourceTree = "<group>";
+		};
 		5455406D1FFC420E00F32B51 = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				545540791FFC420E00F32B51 /* AppDelegate.swift */,
+				5410A66B1FFD644E00935A9A /* Persistence Models */,
 				545540901FFC891E00F32B51 /* Network Models */,
 				5455408D1FFC86F000F32B51 /* View Controllers */,
 				5455407D1FFC420E00F32B51 /* Main.storyboard */,
@@ -77,6 +98,8 @@
 			isa = PBXGroup;
 			children = (
 				5455407B1FFC420E00F32B51 /* NasaImageViewController.swift */,
+				5410A6701FFD73FE00935A9A /* ImagesHistoryViewController.swift */,
+				5410A66C1FFD672B00935A9A /* SettingsViewController.swift */,
 				5455408B1FFC83E500F32B51 /* FavoriteImagesViewController.swift */,
 			);
 			path = "View Controllers";
@@ -164,12 +187,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5410A66A1FFD643600935A9A /* UserDefaultsHelper.swift in Sources */,
+				5410A6711FFD73FE00935A9A /* ImagesHistoryViewController.swift in Sources */,
 				5455408F1FFC88B400F32B51 /* NetworkHelper.swift in Sources */,
 				5455408C1FFC83E500F32B51 /* FavoriteImagesViewController.swift in Sources */,
 				545540921FFC894300F32B51 /* NasaImage.swift in Sources */,
 				545540941FFC8B0500F32B51 /* ImageAPIClient.swift in Sources */,
 				5455407C1FFC420E00F32B51 /* NasaImageViewController.swift in Sources */,
+				5410A6751FFD78D600935A9A /* NSCacheHelper.swift in Sources */,
 				5455407A1FFC420E00F32B51 /* AppDelegate.swift in Sources */,
+				5410A66D1FFD672B00935A9A /* SettingsViewController.swift in Sources */,
+				5410A66F1FFD6ECE00935A9A /* FileManagerHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

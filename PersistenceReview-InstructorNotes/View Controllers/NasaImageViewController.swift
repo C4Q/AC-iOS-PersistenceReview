@@ -10,14 +10,16 @@ import UIKit
 
 class NasaImageViewController: UIViewController {
     
-    var datePicker: UIDatePicker = {
+    var didDisplayWelcome = false
+    
+    lazy var datePicker: UIDatePicker = {
         let dp = UIDatePicker()
         dp.datePickerMode = UIDatePickerMode.date
         dp.maximumDate = Date()
         return dp
     }()
     
-    var loadImageButton: UIButton = {
+    lazy var loadImageButton: UIButton = {
         let button = UIButton()
         button.setTitle("Load Image", for: .normal)
         button.addTarget(self, action: #selector(loadImage), for: .touchUpInside)
@@ -25,13 +27,14 @@ class NasaImageViewController: UIViewController {
         return button
     }()
     
-    var imageView: UIImageView = {
+    lazy var imageView: UIImageView = {
         let iv = UIImageView()
         iv.backgroundColor = .cyan
         return iv
     }()
     
     @objc func loadImage() {
+        print("You have loaded \(UserDefaultsHelper.manager.getNumberOfImageLoads()) images")
         let date = datePicker.date.description.components(separatedBy: " ")[0]
         let key = "9ZYwVaMFnyAPYOm4yy8djSZkhMtuT69QGURFd6km"
         let str = "https://api.nasa.gov/planetary/apod?date=\(date)&api_key=\(key)"
@@ -54,6 +57,21 @@ class NasaImageViewController: UIViewController {
         self.view.backgroundColor = .white
         addSubViews()
         configureConstraints()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if !didDisplayWelcome {
+            displayWelcomeAlert()
+            didDisplayWelcome = true
+        }
+    }
+    
+    func displayWelcomeAlert() {
+        let message = "Welcome \(UserDefaultsHelper.manager.getSavedName() ?? "new user")!  You have looked at \(UserDefaultsHelper.manager.getNumberOfImageLoads()) images"
+        let avc = UIAlertController(title: "Welcome", message: message, preferredStyle: .alert)
+        avc.addAction(UIAlertAction(title: "Cool Beans", style: .cancel, handler: nil))
+        present(avc, animated: true, completion: nil)
     }
     
     func addSubViews() {

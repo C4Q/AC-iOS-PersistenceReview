@@ -16,9 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FileManagerHelper.manager.loadImages()
+        let tbc = UITabBarController()
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let vc = NasaImageViewController()
-        self.window?.rootViewController = vc
+        vc.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.search, tag: 0)
+        let settingsvc = SettingsViewController()
+        settingsvc.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
+        let historyvc = ImagesHistoryViewController()
+        historyvc.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 2)
+        tbc.setViewControllers([vc, settingsvc, historyvc], animated: true)
+        self.window?.rootViewController = tbc
         self.window?.makeKeyAndVisible()
         return true
     }
